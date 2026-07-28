@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# GeoServer data directory (mounted volume - runtime config, not code)
+geoserver_data/
+data/
+
+# Zed
+.zed/
+
+# KDE / Fedora (Dolphin file manager, KDE metadata)
+.directory
+
+# Linux general
+*~
+.fuse_hidden*
+.Trash-*
+.nfs*
+
+# Editor swap/backup (vim-style, in case)
+*.swp
+*.swo

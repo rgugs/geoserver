@@ -1,0 +1,17 @@
+services:
+  geoserver:
+    image: docker.osgeo.org/geoserver:2.28.0
+    container_name: geoserver
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # Skip the bundled demo data - we want a clean instance
+      SKIP_DEMO_DATA: "true"
+      # Admin credentials (set real values in .env)
+      GEOSERVER_ADMIN_USER: ${GEOSERVER_ADMIN_USER}
+      GEOSERVER_ADMIN_PASSWORD: ${GEOSERVER_ADMIN_PASSWORD}
+      # Optional: return a redirect instead of 404 at "/"
+      ROOT_WEBAPP_REDIRECT: "true"
+    volumes:
+      - ./data:/opt/geoserver_data/:Z

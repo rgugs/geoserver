@@ -4,8 +4,11 @@ services:
     container_name: geoserver
     restart: unless-stopped
     labels:
-      net.unraid.docker.icon: "https://raw.githubusercontent.com/selfhst/icons/main/png/geoserver.png"
+      # Unraid specific
+      net.unraid.docker.icon: "https://raw.githubusercontent.com/geoserver/geoserver/refs/heads/main/doc/themes/geoserver/static/geoserver.ico"
       net.unraid.docker.webui: "http://[IP]:[PORT:8080]/geoserver/"
+      net.unraid.docker.shell: "bash" # console shell (sh/bash)
+      net.unraid.docker.managed: "composeman" # usually auto-set by the plugin
     ports:
       - "8080:8080"
     environment:
@@ -15,5 +18,3 @@ services:
       ROOT_WEBAPP_REDIRECT: "true"
     volumes:
       - ./data:/opt/geoserver_data/:Z
-
-
